@@ -1,13 +1,26 @@
-# Section D: Empirical Timing Analysis — Results & Data Tables
+<div align="center">
 
-This document contains the complete empirical timing results converted from [`timing_results.csv`](timing_results.csv) into structured markdown tables, along with pivot views by input type and visual graph comparisons.
+# SECTION D
+
+**Empirical Timing Analysis — Results & Data Tables**
+
+![Section](https://img.shields.io/badge/DAA_LAB-SECTION%20D-17243A?style=for-the-badge)
+![Focus](https://img.shields.io/badge/Design-Vintage%20Academic%20%2B%20Modern-2A7F78?style=flat-square)
+
+</div>
+
+---
+
+## Overview
+
+This document presents the complete empirical timing results converted from [`timing_results.csv`](timing_results.csv) into structured Markdown tables, including pivot views by input type and visual graph comparisons.
 
 ## 1. Summary Tables by Input Type
 
-### Random Order Input (Average Case)
+### Random Order Input · Average Case
 
 | Algorithm | N = 100 | N = 500 | N = 1000 | N = 2000 |
-| :--- | :---: | :---: | :---: | :---: |
+|:--|--:|--:|--:|--:|
 | **Bubble Sort** | 0.645 ms | 18.850 ms | 81.124 ms | 314.609 ms |
 | **Selection Sort** | 0.392 ms | 8.785 ms | 36.159 ms | 133.100 ms |
 | **Insertion Sort** | 0.330 ms | 9.070 ms | 40.104 ms | 149.968 ms |
@@ -15,10 +28,10 @@ This document contains the complete empirical timing results converted from [`ti
 | **Quick Sort** | 0.133 ms | 0.755 ms | 1.604 ms | 3.789 ms |
 | **Heap Sort** | 0.252 ms | 1.830 ms | 3.847 ms | 8.701 ms |
 
-### Already-Sorted Input (Best / Worst Case Divergence)
+### Already-Sorted Input · Best / Worst Case Divergence
 
 | Algorithm | N = 100 | N = 500 | N = 1000 | N = 2000 |
-| :--- | :---: | :---: | :---: | :---: |
+|:--|--:|--:|--:|--:|
 | **Bubble Sort** | 0.010 ms | 0.077 ms | 0.090 ms | 0.182 ms |
 | **Selection Sort** | 0.322 ms | 13.081 ms | 33.847 ms | 134.089 ms |
 | **Insertion Sort** | 0.016 ms | 0.086 ms | 0.193 ms | 0.351 ms |
@@ -26,10 +39,10 @@ This document contains the complete empirical timing results converted from [`ti
 | **Quick Sort** | 0.757 ms | 18.532 ms | 78.272 ms | 310.098 ms |
 | **Heap Sort** | 0.270 ms | 1.769 ms | 4.088 ms | 8.879 ms |
 
-### Reverse-Sorted Input (Worst Case for Elementary Sorts)
+### Reverse-Sorted Input · Worst Case for Elementary Sorts
 
 | Algorithm | N = 100 | N = 500 | N = 1000 | N = 2000 |
-| :--- | :---: | :---: | :---: | :---: |
+|:--|--:|--:|--:|--:|
 | **Bubble Sort** | 0.915 ms | 25.062 ms | 102.798 ms | 414.676 ms |
 | **Selection Sort** | 0.358 ms | 9.864 ms | 37.729 ms | 140.818 ms |
 | **Insertion Sort** | 0.679 ms | 18.211 ms | 70.651 ms | 287.004 ms |
@@ -37,10 +50,10 @@ This document contains the complete empirical timing results converted from [`ti
 | **Quick Sort** | 0.540 ms | 14.412 ms | 56.084 ms | 228.294 ms |
 | **Heap Sort** | 0.208 ms | 1.674 ms | 3.831 ms | 10.229 ms |
 
-## 2. Complete Timing Dataset (All 72 Benchmarks)
+## 2. Complete Timing Dataset · All 72 Benchmarks
 
-| # | Algorithm | Input Distribution | Array Size ($N$) | Execution Time (s) | Execution Time (ms) |
-| :---: | :--- | :--- | :---: | :---: | :---: |
+| # | Algorithm | Input Distribution | Array Size (N) | Execution Time (s) | Execution Time (ms) |
+|:--:|:--|:--|--:|--:|--:|
 | 1 | **Bubble Sort** | Random | 100 | 0.000645 s | **0.645 ms** |
 | 2 | **Selection Sort** | Random | 100 | 0.000392 s | **0.392 ms** |
 | 3 | **Insertion Sort** | Random | 100 | 0.000330 s | **0.330 ms** |
@@ -126,7 +139,15 @@ This document contains the complete empirical timing results converted from [`ti
 
 ## 4. Key Empirical Takeaways
 
-1. **Quick Sort Degradation:** On random data at $N=2000$, Quick Sort is extremely fast (**~3.79 ms**). However, on already-sorted input, it degrades to **~310.10 ms** (an **81x slowdown**) due to last-element pivot picking the maximum value in every partition, degenerating into $O(n^2)$ recursion depth.
-2. **Bubble & Insertion Best-Case:** Both achieve $O(n)$ time on already-sorted input (~0.18 ms and ~0.35 ms at $N=2000$) due to early exit flags and immediately terminating while-loops.
-3. **Merge Sort & Heap Sort Stability:** Both maintain consistent $O(n \log n)$ execution times (~5.0 to 10.2 ms across all configurations).
-4. **Selection Sort Invariance:** Selection Sort performs $\approx 133-145$ ms across all input types at $N=2000$, as it unconditionally scans the entire unsorted slice regardless of initial data order.
+1. **Quick Sort Degradation:** On random data at `N = 2000`, Quick Sort is extremely fast (**~3.79 ms**). However, on already-sorted input, it degrades to **~310.10 ms** (an **81x slowdown**) due to last-element pivot selection choosing the maximum value in every partition, resulting in `O(n²)` recursion depth.
+2. **Bubble & Insertion Best-Case:** Both achieve `O(n)` time on already-sorted input (~0.18 ms and ~0.35 ms at `N = 2000`) due to early-exit flags and immediately terminating while-loops.
+3. **Merge Sort & Heap Sort Stability:** Both maintain consistent `O(n log n)` execution times (~5.0 to 10.2 ms across all configurations).
+4. **Selection Sort Invariance:** Selection Sort performs approximately 133–145 ms across all input types at `N = 2000`, as it unconditionally scans the entire unsorted slice regardless of initial data order.
+
+---
+
+<div align="center">
+
+*DAA Laboratory · Section D*
+
+</div>
